@@ -18,6 +18,8 @@ export function normalizePagePath (page) {
     page = `/${page}`
   }
 
+  page = page.replace(/\/$/, '')
+
   // Throw when using ../ etc in the pathname
   const resolvedPage = posix.normalize(page)
   if (page !== resolvedPage) {
